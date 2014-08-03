@@ -27,11 +27,12 @@ $.fn.mobilemenu = function(userOptions){
   };
   
   //This will open menu
-  var bodyOverflowYDefoultValue = $(document.body).css('overflow-y');
   var openMenu = function(){
     menu.addClass('js-mobilemenu--opened');
-    bodyOverflowYDefoultValue = $(document.body).css('overflow-y');
-    $(document.body).css('overflow-y', 'hidden');
+    
+    $(document.documentElement).css({'overflow-y': 'hidden', 'height': '100%'});
+    $(document.body).css({'overflow-y': 'hidden', 'height': '100%'});
+    
     updateHeight();
   
     if(options.onOpen)
@@ -41,7 +42,9 @@ $.fn.mobilemenu = function(userOptions){
   //This will close menu
   var closeMenu = function(){
     menu.removeClass('js-mobilemenu--opened');
-    $(document.body).css('overflow-y', bodyOverflowYDefoultValue);
+    
+    $(document.documentElement).css({'overflow-y': '', 'height': ''});
+    $(document.body).css({'overflow-y': '', 'height': ''});
   
     if(options.onClose)
       options.onClose(menu, options);
@@ -146,5 +149,5 @@ $.fn.mobilemenu = function(userOptions){
 };
 
 $.mobilemenu = function(options){
-  $(document.body).children().eq(0).mobilemenu(options);
+  return $(document.body).children().eq(0).mobilemenu(options);
 };
