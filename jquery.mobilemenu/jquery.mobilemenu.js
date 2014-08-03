@@ -2,7 +2,6 @@ $.fn.mobilemenu = function(userOptions){
   var menuCallObject = this;
   var menu;
   var menuInner;
-  var menuInnerUl;
   
   var options = {
     menu: false,
@@ -22,13 +21,8 @@ $.fn.mobilemenu = function(userOptions){
   //This will create mobilemenu object if it needed
   var initMenu = function(){
     var body = options.body;
-    if(!body){
-      if(menuCallObject.prop('tagName') == 'UL'){
-        body = $('<div>').append(menuCallObject.clone()).html();
-      } else {
-        body = '';
-      }
-    }
+    if(!body)
+      body = $('<div>').append(menuCallObject.clone()).html();
     return $('<div class="mobilemenu '+options.theme+'"><div class="mobilemenu--inner">'+body+'</div></div>').prependTo(document.body);
   };
   
@@ -77,33 +71,18 @@ $.fn.mobilemenu = function(userOptions){
   }
   
   menuInner = menu.children().eq(0);
-  menuInnerUl = menuInner.children('ul');
   
   //Attache close function
-  menu.bind('touchstart mousedown', function(){
-    if(!menuInner.is(':hover')){
-      menu.addClass('js-mobilemenu--animate-out');
-      setTimeout(function(){
-        menu.removeClass('js-mobilemenu--animate-out');
-        closeMenu();
-      }, 300);
-    }
+  menuInner.bind('touchstart mousedown', function(e){
+    e.stopPropagation();
   });
-  
-  //Attache close function after sliding
-  /*var touchstartX = 0;
-  menu.bind('touchstart', function(e){
-    touchstartX = e.originalEvent.touches[0].pageX;
-  }).bind('touchend', function(e){
-    var touch = e.originalEvent.touches[0] || e.originalEvent.changedTouches[0];
-    if(touchstartX - touch.pageX > window.innerWidth/3){
-      menu.addClass('js-mobilemenu--animate-out');
-      setTimeout(function(){
-        menu.removeClass('js-mobilemenu--animate-out');
-        closeMenu();
-      }, 300);
-    }
-  });*/
+  menu.bind('touchstart mousedown', function(){
+    menu.addClass('js-mobilemenu--animate-out');
+    setTimeout(function(){
+      menu.removeClass('js-mobilemenu--animate-out');
+      closeMenu();
+    }, 300);
+  });
   
   //Add ul functions
   function updateUlLis(ul, index){
@@ -142,12 +121,28 @@ $.fn.mobilemenu = function(userOptions){
       options.onUlInit(ul, index, menu, options);
   }
   
-  menuInnerUl.each(function(index){
-    updateUlLis(this, index);
-  });
+  //Update menu inner and readd ul function
+  function updateMenu(){
+    menuInner.children('ul').each(function(index){
+      if(!$(this).hasClass('js-mobilemenu--ul-processed')){
+        $(this).addClass('js-mobilemenu--ul-processed');
+        updateUlLis(this, index);
+      }
+    });
+  }
+  
+  updateMenu();
   
   if(options.onInit)
     options.onInit(menu, options);
+    
+  return {
+    'menu': menu,
+    'menuInner': menuInner,
+    'openMenu': openMenu,
+    'closeMenu': closeMenu,
+    'updateMenu': updateMenu
+  };
 };
 
 $.mobilemenu = function(options){

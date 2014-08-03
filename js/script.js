@@ -1,5 +1,7 @@
+var dxk;
+
 $(function(){
-  $('#menu2').eq(0).mobilemenu({
+  dxk = $('#menu2').eq(0).mobilemenu({
     menuOpenIcon: '<span class="mobilemenu--open-icon">MENU2</span>',
     body: '<div class="block">\
         <p>Cursus, in proin! Cum pulvinar? Montes velit, adipiscing porta duis pulvinar? Parturient purus ac quis ac augue pulvinar a tortor porttitor cras parturient, habitasse nascetur montes nunc? Odio placerat, et rhoncus, turpis? Porttitor rhoncus arcu, velit! Lorem placerat lorem amet elit vel elit. Enim est parturient rhoncus, massa amet.</p>\
@@ -26,7 +28,7 @@ $(function(){
           </ul>\
         </li>\
         <li><a href="#">Menu 4</a></li>\
-      </ul>',
+      </ul>'/*,
     onInit: function(menu, options){
       console.log(menu);
       console.log(options);
@@ -40,11 +42,11 @@ $(function(){
       console.log(options);
     },
     onUlInit: function(ul, index, menu, options){
-      /*console.log(ul);
+      console.log(ul);
       console.log(index);
       console.log(menu);
-      console.log(options);*/
-    }
+      console.log(options);
+    }*/
   });
   
   $('#menu').children('ul').mobilemenu();
