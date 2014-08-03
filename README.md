@@ -1,6 +1,7 @@
 # MobileMenu
 
 MobileMenu is a tiny very customizable jquery plugin for turn any block or menu to look-alike on-canvas menus with submenus.
+You can find demo [here](http://sargismarkosyan.github.io/MobileMenu/).
 
 ## Installation
 
