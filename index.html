@@ -44,6 +44,7 @@
 
       <div class="row marketing">
         <div class="col-lg-6">
+        
           <h4 id="demo">Demo</h4>
           <p>As demo you can check menu of this site on 619 or lower screen size. Or click link below for more detailed demo</p>
           <a class="demoLink" href="javascript:">Open Menu</a>
@@ -52,69 +53,54 @@
           <p>You can download it from <a href="https://github.com/sargismarkosyan/MobileMenu/archive/master.zip">here</a>.</p>
 
           <h4 id="documentation">Documentation</h4>
-          <p>
-            <p>MobileMenu have some options:</p>
-            <ul>
-            <li>
-            <code>menu: false</code> menu block, it can be used if you want attach block to an existing menu object</li>
-            <li>
-            <code>menuOpenIcon: false</code> menu opener element html code</li>
-            <li>
-            <code>menuOpenObject: false</code> element witch mast be clicked for menu opening, if this parameter is set no need for menuOpenIcon</li>
-            <li>
-            <code>body: ''</code> menu inner html, by default it will get content of selector element</li>
-            <li>
-            <code>onInit: false</code> callback after menu is initialized</li>
-            <li>
-            <code>onOpen: false</code> callback after menu opening</li>
-            <li>
-            <code>onClose: false</code> callback after menu closing</li>
-            <li>
-            <code>onUlInit: false</code> plugin recursively check each ul inside block and do some modifications for it, you can add callback for do some changes</li>
-            <li>
-            <code>theme: 'mobilemenu-theme'</code> this class will be attached in menu block and by default menuOpenIcon item</li>
-            </ul>
-            
-            <p>Here is an example</p>
-            <div class="highlight highlight-javascript"><pre>var menu = $('.menu').mobilemenu({
-  menuOpenIcon: '&lt;span class="mobilemenu--open-icon"&gt;Click to open menu&lt;/span&gt;',
-  body: '&lt;p&gt;some body&lt;/p&gt;',
-  onInit: function(menu, options){
-    console.log(menu);
-    console.log(options);
-  },
-  onOpen: function(menu, options){
-    console.log(menu);
-    console.log(options);
-  },
-  onClose: function(menu, options){
-    console.log(menu);
-    console.log(options);
-  },
-  onUlInit: function(ul, index, menu, options){
-    console.log(ul);
-    console.log(index);
-    console.log(menu);
-    console.log(options);
-  }
+          <p>MobileMenu have some options:</p>
+          <ul>
+            <li><code>menu: false</code> menu block, it can be used if you want attach block to an existing menu object</li>
+            <li><code>menuOpenIcon: false</code> menu opener element html code</li>
+            <li><code>menuOpenObject: false</code> element witch mast be clicked for menu opening, if this parameter is set no need for menuOpenIcon</li>
+            <li><code>body: ''</code> menu inner html, by default it will get content of selector element</li>
+            <li><code>onInit: false</code> callback after menu is initialized</li>
+            <li><code>onOpen: false</code> callback after menu opening</li>
+            <li><code>onClose: false</code> callback after menu closing</li>
+            <li><code>onUlInit: false</code> plugin recursively check each ul inside block and do some modifications for it, you can add callback for do some changes</li>
+            <li><code>theme: 'mobilemenu-theme'</code> this class will be attached in menu block and by default menuOpenIcon item</li>
+          </ul>
+          
+          <p>Here is an example</p>
+          <div class="highlight highlight-javascript"><pre>var menu = $('.menu').mobilemenu({
+menuOpenIcon: '&lt;span class="mobilemenu--open-icon"&gt;Click to open menu&lt;/span&gt;',
+body: '&lt;p&gt;some body&lt;/p&gt;',
+onInit: function(menu, options){
+  console.log(menu);
+  console.log(options);
+},
+onOpen: function(menu, options){
+  console.log(menu);
+  console.log(options);
+},
+onClose: function(menu, options){
+  console.log(menu);
+  console.log(options);
+},
+onUlInit: function(ul, index, menu, options){
+  console.log(ul);
+  console.log(index);
+  console.log(menu);
+  console.log(options);
+}
 });
 
 menu.openMenu();</pre></div>
-            
-            <p>MobileMenu return object with functions:</p>
-            <ul class="task-list">
-            <li>
-            <code>menu</code> this is menu object</li>
-            <li>
-            <code>menuInner</code> menu inside content object</li>
-            <li>
-            <code>openMenu</code> opening menu</li>
-            <li>
-            <code>closeMenu</code> closing menu</li>
-            <li>
-            <code>updateMenu</code> this will update ul elements, its needs to be called after menuInner modifications</li>
-            </ul>
-          </p>
+          
+          <p>MobileMenu return object with functions:</p>
+          <ul>
+            <li><code>menu</code> this is menu object</li>
+            <li><code>menuInner</code> menu inside content object</li>
+            <li><code>openMenu</code> opening menu</li>
+            <li><code>closeMenu</code> closing menu</li>
+            <li><code>updateMenu</code> this will update ul elements, its needs to be called after menuInner modifications</li>
+          </ul>
+          
         </div>
       </div>
 
