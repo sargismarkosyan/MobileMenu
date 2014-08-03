@@ -1,0 +1,52 @@
+.mobilemenu.mobilemenu-theme.js-mobilemenu--opened {
+  background: rgba(0, 0, 0, .5);
+}
+.mobilemenu.mobilemenu-theme,
+.mobilemenu.mobilemenu-theme.js-mobilemenu--animate-out {
+  background: rgba(0, 0, 0, 0);
+}
+
+.mobilemenu--open-icon.mobilemenu-theme {
+  display: block;
+  width: 40px;
+  height: 40px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: #eee;
+}
+.mobilemenu--open-icon.mobilemenu-theme .slicknav_icon {
+  display: block;
+  padding: 6px;
+}
+.mobilemenu--open-icon.mobilemenu-theme .slicknav_icon .slicknav_icon-bar {
+  display: block;
+  height: 5px;
+  margin-top: 4px;
+  background: #fff;
+}
+.mobilemenu--open-icon.mobilemenu-theme .slicknav_icon .slicknav_icon-bar.slicknav_icon-bar--first {
+  margin-top: 0;
+}
+
+.nav {
+  display: none;
+}
+
+.some-text {
+  overflow: hidden;
+  margin: 30px 10px 10px;
+}
+
+.search {
+  margin: 10px;
+}
+
+@media (min-width: 620px) {
+  .mobilemenu--open-icon.mobilemenu-theme {
+    display: none;
+  }
+  
+  .nav {
+    display: block;
+  }
+}
