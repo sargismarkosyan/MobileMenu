@@ -2,7 +2,7 @@
 
 MobileMenu is a tiny very customizable jquery plugin for turn any block or menu to look-alike on-canvas menus with submenus.
 
-## Instalation
+## Installation
 
 Just include the script on your html files.
 
@@ -30,12 +30,12 @@ MobileMenu have some options:
 * `menu: false` menu block, it can be used if you want attach block to an existing menu object
 * `menuOpenIcon: false` menu opener element html code
 * `menuOpenObject: false` element witch mast be clicked for menu opening, if this parameter is set no need for menuOpenIcon
-* `body: ''` menu inner html, by defoult it will get content of selector element
-* `onInit: false` callback after menu is initaliazed
+* `body: ''` menu inner html, by default it will get content of selector element
+* `onInit: false` callback after menu is initialized
 * `onOpen: false` callback after menu opening
 * `onClose: false` callback after menu closing
-* `onUlInit: false` plagin recuresvly cheak each ul inside block and do some modifications for it, you can add callback for do some changes
-* `theme: 'mobilemenu-theme'` this class will be attached in menu block and by defoult menuOpenIcon item
+* `onUlInit: false` plugin recursively check each ul inside block and do some modifications for it, you can add callback for do some changes
+* `theme: 'mobilemenu-theme'` this class will be attached in menu block and by default menuOpenIcon item
 
 ```javascript
 var menu = $('.menu').mobilemenu({
@@ -60,6 +60,8 @@ var menu = $('.menu').mobilemenu({
     console.log(options);
   }
 });
+
+menu.openMenu();
 ```
 MobileMenu return object with functions:
 
