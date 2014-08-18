@@ -17,6 +17,7 @@
       body: '',
       onInit: false,
       onOpen: false,
+      onStartCloseAnimation: false,
       onClose: false,
       onUlInit: false,
       theme: 'mobilemenu-theme'
@@ -87,6 +88,9 @@
       e.stopPropagation();
     });
     menu.bind('touchstart mousedown', function(){
+      if(options.onStartCloseAnimation)
+        options.onStartCloseAnimation(menu, options);
+        
       menu.addClass('js-mobilemenu--animate-out');
       setTimeout(function(){
         menu.removeClass('js-mobilemenu--animate-out');
